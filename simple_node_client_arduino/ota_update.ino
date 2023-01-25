@@ -1,20 +1,6 @@
-void update_started() {
-  Serial.println("CALLBACK:  HTTP update process started");
-}
-
-void update_finished() {
-  Serial.println("CALLBACK:  HTTP update process finished");
-}
-
-void update_progress(int cur, int total) {
-  Serial.printf("CALLBACK:  HTTP update process at %d of %d bytes...\n", cur, total);
-}
-
-void update_error(int err) {
-  Serial.printf("CALLBACK:  HTTP update fatal error code %d\n", err);
-}
 
 int getFirmwareVersionFromServer() {
+
   String payload;
   int httpCode;
   String fwurl = "";
@@ -23,8 +9,7 @@ int getFirmwareVersionFromServer() {
   fwurl += String(rand());
   Serial.println(fwurl);
   WiFiClient * client = new WiFiClient;
-  LOCK_UDP_REICEIVER = true;
-  setFullDisplayStringWithTimer("FW check");
+  LOCK_UDP_REICEIVER = true; // lock the udp/osc process to avoid accidents ;)
   delay(200);
   if (client) {
     HTTPClient http;
@@ -38,10 +23,6 @@ int getFirmwareVersionFromServer() {
         payload = http.getString(); // save received version
       } else {
         Serial.print("error in downloading version file:");
-        setFullDisplayStringWithTimer("FW dlerr");
-        delay(300);
-        setFullDisplayStringWithTimer("        ");
-        Serial.println(httpCode);
       }
       http.end();
     }
@@ -59,17 +40,11 @@ int getFirmwareVersionFromServer() {
     LOCK_UDP_REICEIVER = false;
     if (remote_version > FW_VERSION) {
       Serial.println("FW UPDATE> New firmware detected");
-      setFullDisplayStringWithTimer("FW   new");
-      delay(500);
-      setFullDisplayStringWithTimer("        ");
 
       LOCK_UDP_REICEIVER = false;
       return 1;
     } else {
       Serial.println("FW UPDATE> Device already on latest firmware version.");
-      setFullDisplayStringWithTimer("FW    ok");
-      delay(500);
-      setFullDisplayStringWithTimer("        ");
       LOCK_UDP_REICEIVER = false;
       return 0;
     }
@@ -84,11 +59,6 @@ void updateFirmwareFromServer() {
   Serial.print("FW UPDATE> BIN_URL = ");
   Serial.println(URL_FW_BINARY);
   LOCK_UDP_REICEIVER = true;
-  setFullDisplayStringWithTimer("FW updat");
-  delay(100);
-  setFullDisplayStringWithTimer("FW -----");
-  delay(100);
-  timerAlarmDisable(timer);
   t_httpUpdate_return ret = httpUpdate.update(client, URL_FW_BINARY);
   Serial.println("FW UPDATE> DONE");
   Serial.print("FW UPDATE> ret = ");
@@ -107,6 +77,21 @@ void updateFirmwareFromServer() {
       Serial.println("HTTP_UPDATE_OK");
       break;
   }
-  timerAlarmEnable(timer);
   LOCK_UDP_REICEIVER = false;
+}
+
+void update_started() {
+  Serial.println("CALLBACK:  HTTP update process started");
+}
+
+void update_finished() {
+  Serial.println("CALLBACK:  HTTP update process finished");
+}
+
+void update_progress(int cur, int total) {
+  Serial.printf("CALLBACK:  HTTP update process at %d of %d bytes...\n", cur, total);
+}
+
+void update_error(int err) {
+  Serial.printf("CALLBACK:  HTTP update fatal error code %d\n", err);
 }

@@ -14,9 +14,14 @@ float FW_VERSION = 0.01;
 
 // server location of your new firmware (export firmware with arduino IDE , change version.txt as well)
 // change server IP if needed
+// can be set via osc as well
 
 const char DEFAULT_URL_FW_VERSION[] = "http://192.168.178.61:8080/release/version.txt"; 
 const char  DEFAULT_URL_FW_BINARY[] = "http://192.168.178.61:8080/release/firmware.bin";
+
+boolean LOCK_UDP_REICEIVER = true; // lock UDP/OSC receiver to avoid shit while flashing a new firmware
+char URL_FW_VERSION[512];
+char URL_FW_BINARY[512];
 boolean UPDATE_FIRMWARE = true; // hook in firmwareupdate
 
 long pingInterval = 2000; // every 2 seconds
