@@ -27,6 +27,7 @@ int getFirmwareVersionFromServer() {
       http.end();
     }
     delete client;
+    LOCK_UDP_REICEIVER = false;
   }
 
 

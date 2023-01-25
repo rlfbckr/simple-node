@@ -1,5 +1,5 @@
 void onPacketOSC(AsyncUDPPacket packet) {
-if (LOCK_UDP_REICEIVER) { // lock from firmware falsh process
+  if (LOCK_UDP_REICEIVER) { // lock from firmware falsh process
     packet.flush();
     return; // do no shit!
   }
@@ -8,8 +8,8 @@ if (LOCK_UDP_REICEIVER) { // lock from firmware falsh process
     msgIn.fill(packet.data(), packet.length());
     packet.flush();
     if (!msgIn.hasError()) {
-      msgIn.route("/command1", OSCcommand1);
-      msgIn.route("/command2", OSCcommand2);
+      msgIn.route("/command", OSCcommand);
+      msgIn.route("/click", OSCclick);
       msgIn.route("/updatefirmware", OSCupdateFirmware);
       msgIn.route("/ufversionurl", OSCupdateFirmwareSetVersionURL);
       msgIn.route("/ufbinaryurl", OSCupdateFirmwareSetBinaryURL);
@@ -20,30 +20,32 @@ if (LOCK_UDP_REICEIVER) { // lock from firmware falsh process
   packet.flush();
 }
 
-void OSCcommand1(OSCMessage &msg, int addrOffset) {
+void OSCcommand(OSCMessage &msg, int addrOffset) {
   Serial.print("received parapmeters: ");
   Serial.println( msg.size());
-  if (msg.size() == 2) {
-    Serial.print(msg.getInt(0));
+  if (msg.size() == 3) {
+    Serial.print("/command ");
+    Serial.print(msg.getFloat(0));
     Serial.print(" ");
     Serial.print(msg.getInt(1));
+    Serial.print(" ");
+    Serial.println(msg.getFloat(2));
   }
 }
 
-void OSCcommand2(OSCMessage &msg, int addrOffset) {
-  Serial.print("received parapmeters: ");
-  Serial.println( msg.size());
-  if (msg.size() == 5) {
-    Serial.print(msg.getDouble(0));
+void OSCclick(OSCMessage &msg, int addrOffset) {
+  if (msg.size() == 2) {
+    Serial.print("/click ");
+    Serial.print(msg.getInt(0));
     Serial.print(" ");
-    Serial.print(msg.getDouble(1));
-    Serial.print(" ");
-    Serial.println(msg.getDouble(2));
+    Serial.println(msg.getInt(1));
   }
 }
 
- 
+
 void OSCupdateFirmware(OSCMessage &msg, int addrOffset) {
+  Serial.print("/updatefirmware");
+
   UPDATE_FIRMWARE = true; // set the hook for the main loooooop
 }
 
