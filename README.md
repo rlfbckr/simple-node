@@ -5,10 +5,10 @@ e.g.: you want to "control" multiple esp32 from one central computer running pro
 
 ## Overview:
 
-1. `simple_node_client_arduino` - ESP32 Node Client
-2. `firmware updating code` - Processing Server
-3. `setNodeID_arduino` - writes the NODE_ID to the EEPROM (has to be done once for each node)
-4. `firmware_server` - Node.js sever to distribute the new firmware binary to all nodes in the network
+- `simple_node_client_arduino` - ESP32 Node Client
+- `firmware updating code` - Processing Server
+- `setNodeID_arduino` - writes the NODE_ID to the EEPROM (has to be done once for each node)
+- `firmware_server` - Node.js sever to distribute the new firmware binary to all nodes in the network
 
 ### Arduino
 
