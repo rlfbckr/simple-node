@@ -67,6 +67,16 @@ code in processing:
   oscP5.send(myMessage, myRemoteLocation);
 ```
 
+## Writing the NODE_ID to the EEPROM
+
+Before you upload the `simple_node_client_arduino` to your ESP32. use the `setNodeID_arduino` program to write its ID to the EEPROM. Change the `set_nodeid` to the desired ID:
+```
+// set node id here
+int set_nodeid = 12; // <------------------ change here to set
+```
+Afterwards upload the `simple_node_client_arduino` sketch to your ESP32.
+
+
 ## Over the Air Update (OTA Update)
 
 ### Preparing the new firmware
