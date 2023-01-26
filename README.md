@@ -49,7 +49,7 @@ code in processing:
 
 
 ### broadcast
-send to the broadcast addres of the network.
+send to the broadcast address of the network.
 
 e.g.: `255.255.255.255`
 
@@ -63,7 +63,7 @@ code in processing:
 
 ### Preparing the new firmware
 
-First test the new firmware on one of the nodes (use the normal update procedure via USB). Make sure it works to avoid flashing a buggy formware to all of your nodes. If you firmware works you can do a bulk update over the air for multible nodes at the same time.
+First test the new firmware on one of the nodes (use the normal update procedure via USB). Make sure it works to avoid flashing a buggy firmeware to all of your nodes (you might brick them for instance if the update function becomes corrupted). If you firmware works you can do a bulk update over the air for multible nodes at the same time.
 Make sure to give it a proper incremental version number.
 
 for example: `FW_VERSION=0.50`
