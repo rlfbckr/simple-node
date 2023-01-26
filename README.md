@@ -112,6 +112,5 @@ send "`/ufversionurl http://123.1.2.3/release/version.txt`" via OSC from Process
 
 send `/ufbinaryurl http://192.168.178.61:8080/release/firmware.bin` via OSC from Processing.
 
-To start the update send `/updatefirmware` via OSC to the ESP32
-The ESP32 will request `version.txt` from the URL. if the version on the server is larger than the previous it will download `firmware.bin` and initiate the update.
+To start the update send `/updatefirmware` via OSC to the ESP32. The ESP32 will request `version.txt` from the URL. if the version on the server is larger than the previous it will download `firmware.bin` and initiate the update.
 
