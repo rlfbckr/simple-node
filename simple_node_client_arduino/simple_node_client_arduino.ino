@@ -1,15 +1,12 @@
-//#include <esp_wifi.h>
 #include <HTTPClient.h>
 #include <HTTPUpdate.h>
-//#include "soc/rtc_cntl_reg.h"
-//#include "soc/soc.h"
 #include <Chrono.h>
 #include <OSCBundle.h>
 #include <WiFi.h>
 #include <WiFiMulti.h>
 #include "AsyncUDP.h"
 
-int MY_NODE_ID = 12; // can also be stored in eeprom
+int MY_NODE_ID = 1; // can also be stored in eeprom
 float FW_VERSION = 0.01; // important for the firmware ota flashing process
 
 // server location of your new firmware (export firmware with arduino IDE , change version.txt as well)

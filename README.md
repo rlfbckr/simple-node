@@ -1,6 +1,7 @@
 # simple_node
 
-boilerplate for a simple node based project running on an ESP 32 + UDP/OSC data exchange + simple update over the air functionality
+boilerplate code for a simple (node based) project running on an ESP 32 + UDP/OSC data exchange + simple update over the air functionality.
+e.g.: you want to "control" multiple esp32 from one central computer running processing.
 
 ## reqirments
 
@@ -8,9 +9,10 @@ boilerplate for a simple node based project running on an ESP 32 + UDP/OSC data 
 
 - board: ESP32 from Expressif System
 - libraries:
-  - OSC
-  - ESP32 HTTPupdate
-  - HTTPClient
+  - OSC [https://github.com/CNMAT/OSC](https://github.com/CNMAT/OSC)
+  - HTTPupdate (comes with the ESP32 board libraries)
+  - HTTPClient (comes with the ESP32 board libraries)
+  - AsynUDP (comes with the ESP32 board libraries)
   - Chrono
 
 #### Processing
