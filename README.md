@@ -73,7 +73,7 @@ code in processing:
 ## Writing the NODE_ID to the EEPROM
 
 Before you upload the `simple_node_client_arduino` to your ESP32. use the `setNodeID_arduino` program to write its ID to the EEPROM. Change the `set_nodeid` to the desired ID:
-```
+```java
 // set node id here
 int set_nodeid = 12; // <------------------ change here to set
 ```
@@ -101,7 +101,7 @@ You have to define ip/address (URL) from where the ESP32 will download the new f
 
 Either you define it directly in the arduino code by setting:
 
-```
+```java
 const char DEFAULT_URL_FW_VERSION[] = "http://192.168.178.61:8080/release/version.txt";
 const char  DEFAULT_URL_FW_BINARY[] = "http://192.168.178.61:8080/release/firmware.bin";`
 ```
