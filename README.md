@@ -3,17 +3,19 @@
 Boilerplate code for a simple (node based) project running on an ESP 32 + UDP/OSC data exchange + simple update over the air functionality + node id stored in the EEPROM.
 e.g.: you want to "control" multiple esp32 from one central computer running processing.
 
-## Overview:
+## Overview
 
 - `simple_node_client_arduino` - ESP32 Node Client
 - `firmware updating code` - Processing Server
 - `setNodeID_arduino` - writes the NODE_ID to the EEPROM (has to be done once for each node)
 - `firmware_server` - Node.js sever to distribute the new firmware binary to all nodes in the network
 
+## Reqirements
+
 ### Arduino
 
-- board: ESP32 from Expressif System
-- libraries:
+- Board: ESP32 from Expressif System
+- Libraries:
   - `OSC` ([https://github.com/CNMAT/OSC](https://github.com/CNMAT/OSC))
   - `HTTPupdate` (comes with the ESP32 board libraries)
   - `HTTPClient` (comes with the ESP32 board libraries)
@@ -22,7 +24,7 @@ e.g.: you want to "control" multiple esp32 from one central computer running pro
 
 ### Processing
 
-- libraries:
+- Libraries:
   - `oscP5`
 
 ### Node.js (firmware server)
