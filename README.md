@@ -40,7 +40,9 @@ e.g.: you want to "control" multiple esp32 from one central computer running pro
 
 OSC messages are usually composed of an `address pattern` and data eg. `integer`, `floats` or `string`. e.g.:
 
-`/commmand/parameter 12 1.4 test`
+```
+/commmand/parameter 12 1.4 test
+```
 
 ## OSC Unicast vs Broadcast (Processing)
 
