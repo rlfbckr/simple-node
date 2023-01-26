@@ -5,8 +5,17 @@
 #include <WiFi.h>
 #include <WiFiMulti.h>
 #include "AsyncUDP.h"
+#include <EEPROM.h> // 
 
-int MY_NODE_ID = 1; // can also be stored in eeprom
+#define EEPROM_SIZE 12
+
+
+int MY_NODE_ID = -1; // not set here, it will be read from EEPROM.
+                     // this will allow you to use the "same" code an
+                     // all nodes without setting the node in the code
+                     // before you have to set the node ID via the setNodeID arduino sketch.
+                     // upload it and afterwads upload the sketch
+                     
 float FW_VERSION = 0.01; // important for the firmware ota flashing process
 
 // server location of your new firmware (export firmware with arduino IDE , change version.txt as well)
@@ -33,7 +42,7 @@ AsyncUDP udpOut;
 void setup() {
   strncpy(URL_FW_VERSION, DEFAULT_URL_FW_VERSION, strlen(DEFAULT_URL_FW_VERSION));
   strncpy(URL_FW_BINARY, DEFAULT_URL_FW_BINARY, strlen(DEFAULT_URL_FW_BINARY));
-
+  MY_NODE_ID = readNodeIDfromEEPROM();
   Serial.begin(115200);
   Serial.print("--> NODE  v:");
   Serial.println(FW_VERSION);
