@@ -9,16 +9,16 @@ e.g.: you want to "control" multiple esp32 from one central computer running pro
 
 - board: ESP32 from Expressif System
 - libraries:
-  - OSC ([https://github.com/CNMAT/OSC](https://github.com/CNMAT/OSC))
-  - HTTPupdate (comes with the ESP32 board libraries)
-  - HTTPClient (comes with the ESP32 board libraries)
-  - AsynUDP (comes with the ESP32 board libraries)
-  - Chrono
+  - `OSC` ([https://github.com/CNMAT/OSC](https://github.com/CNMAT/OSC))
+  - `HTTPupdate` (comes with the ESP32 board libraries)
+  - `HTTPClient` (comes with the ESP32 board libraries)
+  - `AsynUDP` (comes with the ESP32 board libraries)
+  - `Chrono`
 
 ### Processing
 
 - libraries:
-  - oscP5
+  - `oscP5`
 
 ### Node.js (firmware server)
 
