@@ -44,7 +44,7 @@ OSC messages are usaly composed of an `address pattern` and data eg. integet, fl
 
 ## OSC Unicast vs Broadcast (Processing)
 
-You can send OSC packets directly to one specfic "node" or broadcast it to all "nodes"
+You can send OSC packets directly to **one specific node** or broadcast it to **all nodes**.
 
 
 ### unicast
