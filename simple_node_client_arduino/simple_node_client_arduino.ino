@@ -1,8 +1,8 @@
-#include <esp_wifi.h>
+//#include <esp_wifi.h>
 #include <HTTPClient.h>
 #include <HTTPUpdate.h>
-#include "soc/rtc_cntl_reg.h"
-#include "soc/soc.h"
+//#include "soc/rtc_cntl_reg.h"
+//#include "soc/soc.h"
 #include <Chrono.h>
 #include <OSCBundle.h>
 #include <WiFi.h>

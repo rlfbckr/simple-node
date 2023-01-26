@@ -21,4 +21,5 @@ boilerplate for a simple node based project running on an ESP 32 + UDP/OSC data 
 ## Node.js (Firmware Server)
 
 - nodejs + express + ecstatic
-  - `npm install express + ecstatic`
+  - `npm install express`
+  - `npm install ecstatic`
