@@ -10,9 +10,9 @@ e.g.: you want to "control" multiple esp32 from one central computer running pro
 - `setNodeID_arduino` - writes the NODE_ID to the EEPROM (has to be done once for each node)
 - `firmware_server` - Node.js sever to distribute the new firmware binary to all nodes in the network
 
-## Reqirements
+## Requirements
 
-### Arduino
+### Arduino ###
 
 - Board: ESP32 from Expressif System
 - Libraries:
@@ -38,7 +38,7 @@ e.g.: you want to "control" multiple esp32 from one central computer running pro
 - Documentation for the Arduino library: [https://github.com/CNMAT/OSC](https://github.com/CNMAT/OSC)
 - Documentation for the Processing library: [https://sojamo.de/libraries/oscP5/](https://sojamo.de/libraries/oscP5/)
 
-OSC messages are usaly composed of an `address pattern` and data eg. integet, floats or string. eg:
+OSC messages are usually composed of an `address pattern` and data eg. `integer`, `floats` or `string`. e.g.:
 
 `/commmand/parameter 12 1.4 test`
 
@@ -49,23 +49,23 @@ You can send OSC packets directly to **one specific node** or broadcast it to **
 
 ### Unicast
 
-send directly to the ip of the node
+send message directly to the ip of the node
 e.g.: `192.1.3.123`
 
 code in processing:
-```
+```java
   NetAddress myRemoteLocation= new NetAddress("192.1.3.123", 8000);
   oscP5.send(myMessage, myRemoteLocation);
 ```
 
 
 ### Broadcast
-send to the broadcast address of the network.
+send the message to the broadcast address of the network.
 
 e.g.: `255.255.255.255`
 
 code in processing:
-```
+```java
   NetAddress myRemoteLocation= new NetAddress("255.255.255.255", 8000);
   oscP5.send(myMessage, myRemoteLocation);
 ```
