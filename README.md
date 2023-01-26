@@ -1,6 +1,6 @@
 # simple-node
 
-Boilerplate code for a simple (node based) project running on an ESP 32 + UDP/OSC data exchange + simple update over the air functionality.
+Boilerplate code for a simple (node based) project running on an ESP 32 + UDP/OSC data exchange + simple update over the air functionality + node id stored in the EEPROM.
 e.g.: you want to "control" multiple esp32 from one central computer running processing.
 
 ## Reqirments:
