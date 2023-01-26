@@ -5,6 +5,8 @@
 // (it won't be overwritten by flasing the firmware)
 
 
+
+
 // set node id here
 int set_nodeid = 12; // <------------------ change here to set
 
@@ -15,9 +17,19 @@ int set_nodeid = 12; // <------------------ change here to set
 
 
 
+
+
+
+
+
+
+
+
+
+
+// ------------------------------------------------------
 // dont change anything below!
 int read_nodeid = -1;
-
 
 void setup() {
   Serial.begin(115200);
@@ -25,14 +37,11 @@ void setup() {
   Serial.println(set_nodeid);
   EEPROM.begin(EEPROM_SIZE);
   EEPROM.write(0, set_nodeid);
-
   EEPROM.end();
-
-
 }
 
 void loop() {
-    EEPROM.begin(EEPROM_SIZE);
+  EEPROM.begin(EEPROM_SIZE);
   read_nodeid =  EEPROM.read(0);
   EEPROM.end();
   Serial.print(millis());
@@ -41,6 +50,5 @@ void loop() {
   Serial.print(" ( ");
   Serial.print(set_nodeid);
   Serial.println(" )");
-
   delay(1000);
 }
