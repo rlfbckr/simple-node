@@ -3,7 +3,7 @@
 boilerplate code for a simple (node based) project running on an ESP 32 + UDP/OSC data exchange + simple update over the air functionality.
 e.g.: you want to "control" multiple esp32 from one central computer running processing.
 
-#'# Reqirments:
+## Reqirments:
 
 ### Arduino
 
