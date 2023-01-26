@@ -12,7 +12,7 @@ e.g.: you want to "control" multiple esp32 from one central computer running pro
   - `OSC` ([https://github.com/CNMAT/OSC](https://github.com/CNMAT/OSC))
   - `HTTPupdate` (comes with the ESP32 board libraries)
   - `HTTPClient` (comes with the ESP32 board libraries)
-  - `AsynUDP` (comes with the ESP32 board libraries)
+  - `AsyncUDP` (comes with the ESP32 board libraries)
   - `Chrono`
 
 ### Processing
