@@ -10,11 +10,11 @@
 #define EEPROM_SIZE 12
 
 
-int MY_NODE_ID = -1; // the final MY_NODE_ID is not set here, it will be read from EEPROM.
-                     // this will allow you to use the "same" code an
-                     // all nodes without setting the node in the code
-                     // before you have to set the node ID via the setNodeID arduino sketch.
-                     // upload it and afterwads upload the sketch
+int MY_NODE_ID = -1; // the final MY_NODE_ID is not set here, it will be stored and read from EEPROM.
+                     // this will allow you to use the "same" code on
+                     // all nodes without setting the node in the code here.
+                     // before you have to set (write to the eeprom) the node ID via the setNodeID arduino sketch.
+                     // upload this sketch afterwads. 
                      
 float FW_VERSION = 0.01; // important for the firmware ota flashing process
 
