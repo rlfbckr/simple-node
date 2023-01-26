@@ -48,15 +48,14 @@ void setup() {
   Serial.println(FW_VERSION);
   initWIFI();
   initUDP();
-
 }
 
 void loop() {
   if (UPDATE_FIRMWARE) {
-    if (getFirmwareVersionFromServer()) { // check for no
-      updateFirmwareFromServer();
+    if (getFirmwareVersionFromServer()) { // check if a new version is avaiable on the server
+      updateFirmwareFromServer(); // get binary and flash it.
     }
-    UPDATE_FIRMWARE = false;
+    UPDATE_FIRMWARE = false; // update done
   }
   if (pingTimer.hasPassed(pingInterval)) {
     pingTimer.restart();
