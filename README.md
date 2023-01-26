@@ -47,7 +47,8 @@ OSC messages are usaly composed of an `address pattern` and data eg. integet, fl
 You can send OSC packets directly to **one specific node** or broadcast it to **all nodes**.
 
 
-### unicast
+### Unicast
+
 send directly to the ip of the node
 e.g.: `192.1.3.123`
 
@@ -58,7 +59,7 @@ code in processing:
 ```
 
 
-### broadcast
+### Broadcast
 send to the broadcast address of the network.
 
 e.g.: `255.255.255.255`
