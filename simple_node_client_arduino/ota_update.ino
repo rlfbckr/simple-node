@@ -1,6 +1,4 @@
-
 int getFirmwareVersionFromServer() {
-
   String payload;
   int httpCode;
   String fwurl = "";
