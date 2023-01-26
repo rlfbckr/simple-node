@@ -1,5 +1,5 @@
 void onPacketOSC(AsyncUDPPacket packet) {
-  if (LOCK_UDP_REICEIVER) { // lock from firmware falsh process
+  if (LOCK_UDP_REICEIVER) { // lock from firmware flash process
     packet.flush();
     return; // do no shit!
   }
