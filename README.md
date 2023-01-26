@@ -28,6 +28,9 @@ e.g.: you want to "control" multiple esp32 from one central computer running pro
 
 ## OSC Messages
 
+- Documentation for the Arduino library: [https://github.com/CNMAT/OSC](https://github.com/CNMAT/OSC)
+- Documentation for the Processing library: [https://sojamo.de/libraries/oscP5/](https://sojamo.de/libraries/oscP5/)
+
 OSC messages are usaly composed of an `address pattern` and data eg. integet, floats or string. eg:
 
 `/commmand/parameter 12 1.4 test`
