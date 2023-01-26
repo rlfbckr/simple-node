@@ -10,7 +10,7 @@
 #define EEPROM_SIZE 12
 
 
-int MY_NODE_ID = -1; // not set here, it will be read from EEPROM.
+int MY_NODE_ID = -1; // the final MY_NODE_ID is not set here, it will be read from EEPROM.
                      // this will allow you to use the "same" code an
                      // all nodes without setting the node in the code
                      // before you have to set the node ID via the setNodeID arduino sketch.
