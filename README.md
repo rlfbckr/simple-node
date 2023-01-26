@@ -26,21 +26,55 @@ e.g.: you want to "control" multiple esp32 from one central computer running pro
   - `npm install express`
   - `npm install ecstatic`
 
+## OSC Messages
+
+OSC messages are usaly composed of an `address pattern` and data eg. integet, floats or string. eg:
+
+`/commmand/parameter 12 1.4 test`
+
+## OSC Unicast vs Broadcast (Processing)
+
+You can send OSC packets directly to one specfic "node" or broadcast it to all "nodes"
+
+
+### unicast
+send directly to the ip of the node
+e.g.: `192.1.3.123`
+
+code in processing:
+```
+  NetAddress myRemoteLocation= new NetAddress("192.1.3.123", 8000);
+  oscP5.send(myMessage, myRemoteLocation);
+```
+
+
+### broadcast
+send to the broadcast addres of the network.
+
+e.g.: `255.255.255.255`
+
+code in processing:
+```
+  NetAddress myRemoteLocation= new NetAddress("255.255.255.255", 8000);
+  oscP5.send(myMessage, myRemoteLocation);
+```
+
 ## Over the Air Update (OTA Update)
 
 ### Preparing the new firmware
-First test the new firmware on one node (use the normal update procedure via USB). if you firmware works you can do a bulk update over the air for multible nodes at the same time.
+
+First test the new firmware on one of the nodes (use the normal update procedure via USB). Make sure it works to avoid flashing a buggy formware to all of your nodes. If you firmware works you can do a bulk update over the air for multible nodes at the same time.
 Make sure to give it a proper incremental version number.
 
-eg: `FW_VERSION=0.50`
+for example: `FW_VERSION=0.50`
 
-the version number will be used to compare the current installed version and the version avaibalbe on the server.
+The version number will be used to compare the current installed version (on the ESP32) and the version available on the server.
 
-export the binary of your new firmware from arduino.
-copy it to the firmware folder `/release/firmware.bin`
-change `/release/version.txt` to the new version number.
+1. export the binary of your new firmware from arduino. `Sketch > Export compiled binary`.
+2. copy it to the firmware folder `/release/firmware.bin`
+3. change `/release/version.txt` to the new version number.
 
-### initate the update
+### Initate the update
 
 You have to define ip/address (URL) from where the ESP32 will download the new firmware version and it's binary.
 
@@ -51,7 +85,7 @@ const char DEFAULT_URL_FW_VERSION[] = "http://192.168.178.61:8080/release/versio
 const char  DEFAULT_URL_FW_BINARY[] = "http://192.168.178.61:8080/release/firmware.bin";`
 ```
 
-or you can change the location via two OSC commands:
+Or you can change the location via two OSC commands:
 
 send "`/ufversionurl http://123.1.2.3/release/version.txt`" via OSC from Processing.
 
