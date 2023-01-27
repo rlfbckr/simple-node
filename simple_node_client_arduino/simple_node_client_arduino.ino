@@ -6,10 +6,10 @@
  * 
  * boilerplate code for running a simple network node on an ESP32/8266
  * the code includes the following features:
- * - store NODE_ID in EEPROM to make
+ * - store NODE_ID in EEPROM
  * - OSC vie AsyncUDP lib
  * - simple OSC based ping broadcast to say I'm here and alive
- * - OTA update
+ * - OTA (update ofver the air functionally)
  * - detects if its compiling for ESP8266 or ESP32
  */
 
