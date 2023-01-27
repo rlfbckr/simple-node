@@ -1,3 +1,18 @@
+/*
+ * simple_node_client_arduino
+ * https://github.com/rlfbckr/simple-node
+ * 
+ * ralf baecker 2023
+ * 
+ * boilerplate code for running a simple network node on an ESP32/8266
+ * the code includes the following features:
+ * - store NODE_ID in EEPROM to make
+ * - OSC vie AsyncUDP lib
+ * - simple OSC based ping broadcast to say I'm here and alive
+ * - OTA update
+ * - detects if its compiling for ESP8266 or ESP32
+ */
+
 #ifdef ESP8266
 // take specific libraries for ESP8266
 // board file from here: https://arduino.esp8266.com/stable/package_esp8266com_index.json
