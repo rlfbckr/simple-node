@@ -1,5 +1,3 @@
-//#define ESP8266 // uncomment if running on ESP8266
-
 #ifdef ESP8266
 // libs for ESP8266
 #include <ESP8266WiFi.h>
