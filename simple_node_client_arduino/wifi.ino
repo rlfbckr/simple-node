@@ -18,7 +18,11 @@ void initWIFI() {
       Serial.print(" (");
       Serial.print(WiFi.RSSI(i));
       Serial.print(")");
+#ifdef ESP8266
+      Serial.println((WiFi.encryptionType(i) == AUTH_OPEN) ? " " : "*");
+#else
       Serial.println((WiFi.encryptionType(i) == WIFI_AUTH_OPEN) ? " " : "*");
+#endif
       delay(10);
     }
   }

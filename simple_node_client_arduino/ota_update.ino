@@ -58,14 +58,22 @@ void updateFirmwareFromServer() {
   Serial.print("FW UPDATE> BIN_URL = ");
   Serial.println(URL_FW_BINARY);
   LOCK_UDP_REICEIVER = true;
+#ifdef ESP8266
+  t_httpUpdate_return ret = ESPhttpUpdate.update(client, URL_FW_BINARY);
+#else
   t_httpUpdate_return ret = httpUpdate.update(client, URL_FW_BINARY);
+#endif
   Serial.println("FW UPDATE> DONE");
   Serial.print("FW UPDATE> ret = ");
   Serial.println(ret);
 
   switch (ret) {
     case HTTP_UPDATE_FAILED:
+#ifdef ESP8266
+      Serial.printf("HTTP_UPDATE_FAILED Error (%d): %s\n", ESPhttpUpdate.getLastError(), ESPhttpUpdate.getLastErrorString().c_str());
+#else
       Serial.printf("HTTP_UPDATE_FAILED Error (%d): %s\n", httpUpdate.getLastError(), httpUpdate.getLastErrorString().c_str());
+#endif
       break;
 
     case HTTP_UPDATE_NO_UPDATES:

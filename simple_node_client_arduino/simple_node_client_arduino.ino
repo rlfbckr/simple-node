@@ -1,10 +1,23 @@
-#include <HTTPClient.h>
-#include <HTTPUpdate.h>
-#include <Chrono.h>
-#include <OSCBundle.h>
+//#define ESP8266 // uncomment if running on ESP8266
+
+#ifdef ESP8266
+// libs for ESP8266
+#include <ESP8266WiFi.h>
+#include <ESP8266WiFiMulti.h>
+#include <ESP8266HTTPClient.h>
+#include <ESP8266httpUpdate.h>
+#include <ESPAsyncUDP.h> // https://github.com/me-no-dev/ESPAsyncUDP
+#else
+// libs for ESP32
 #include <WiFi.h>
 #include <WiFiMulti.h>
+#include <HTTPClient.h>
+#include <HTTPUpdate.h>
 #include "AsyncUDP.h"
+#endif
+
+#include <Chrono.h>
+#include <OSCBundle.h>
 #include <EEPROM.h> // 
 
 #define EEPROM_SIZE 12
@@ -34,7 +47,11 @@ long pingInterval = 2000; // every 2 seconds
 int networkLocalPort = 8888;
 int networkOutPort = 9999; // remote port to receive OSC
 
+#ifdef ESP8266
+ESP8266WiFiMulti wifiMulti;
+#else
 WiFiMulti wifiMulti;
+#endif
 Chrono pingTimer;
 AsyncUDP udp;
 AsyncUDP udpOut;
