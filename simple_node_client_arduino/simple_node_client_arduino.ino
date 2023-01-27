@@ -7,6 +7,7 @@
  * boilerplate code for running a simple network node on an ESP32/8266
  * the code includes the following features:
  * - store NODE_ID in EEPROM
+ * - wifiMulti: searches for the strongest know wifi and connects
  * - OSC vie AsyncUDP lib
  * - simple OSC based ping broadcast to say I'm here and alive
  * - OTA (update ofver the air functionally)
