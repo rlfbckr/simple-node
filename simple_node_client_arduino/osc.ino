@@ -47,6 +47,7 @@ void OSCupdateFirmware(OSCMessage &msg, int addrOffset) {
   Serial.print("/updatefirmware");
 
   UPDATE_FIRMWARE = true; // set the hook for the main loooooop
+  // update procedure has to be initiated from the "main" loop other wise memory acces is limited.
 }
 
 void OSCupdateFirmwareSetVersionURL(OSCMessage &msg, int addrOffset) {
