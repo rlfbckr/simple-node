@@ -1,5 +1,6 @@
 #ifdef ESP8266
-// libs for ESP8266
+// take specific libraries for ESP8266
+// board file from here: https://arduino.esp8266.com/stable/package_esp8266com_index.json
 #include <ESP8266WiFi.h>
 #include <ESP8266WiFiMulti.h>
 #include <ESP8266HTTPClient.h>
@@ -7,6 +8,7 @@
 #include <ESPAsyncUDP.h> // https://github.com/me-no-dev/ESPAsyncUDP
 #else
 // libs for ESP32
+// board file from here: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json
 #include <WiFi.h>
 #include <WiFiMulti.h>
 #include <HTTPClient.h>
