@@ -1,6 +1,5 @@
 
 void initWIFI() {
-
   WiFi.mode(WIFI_STA);
   wifiMulti.addAP("virus.exe", "wurst.com");
   wifiMulti.addAP("ssid1", "your password");
@@ -33,11 +32,7 @@ void initWIFI() {
     Serial.println("WiFi connected");
     Serial.print(" SSID      : ");  Serial.println(WiFi.SSID());
     Serial.print(" IP address: ");  Serial.println(WiFi.localIP());
-
-    //    sprintf(ipAsString, "%s", WiFi.localIP().toString().c_str());
-
   }
-
 }
 
 void initUDP() {
