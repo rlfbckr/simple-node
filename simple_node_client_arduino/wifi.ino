@@ -1,4 +1,6 @@
-
+/*
+   init functions for WIFI and UDP
+*/
 void initWIFI() {
   WiFi.mode(WIFI_STA);
   wifiMulti.addAP("virus.exe", "wurst.com");

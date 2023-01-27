@@ -1,5 +1,10 @@
-// this function reads the NODE_ID (byte) from the eeprom
-// (the eeprom is not overwritten when uploading a new script)
+/*
+  readNodeIDfromEEPROM()
+  
+  this function reads the NODE_ID (byte) from the EEPROM
+  (the eeprom is not overwritten when uploading a new script)
+*/
+
 int readNodeIDfromEEPROM() {
   EEPROM.begin(EEPROM_SIZE);
   int read_nodeid =  EEPROM.read(0); // reads the first byte from the EEPROM

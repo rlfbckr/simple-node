@@ -1,18 +1,18 @@
 /*
- * simple_node_client_arduino
- * https://github.com/rlfbckr/simple-node
- * 
- * ralf baecker 2023
- * 
- * boilerplate code for running a simple network node on an ESP32/8266
- * the code includes the following features:
- * - store NODE_ID in EEPROM
- * - wifiMulti: searches for the strongest know wifi and connects
- * - OSC vie AsyncUDP lib
- * - simple OSC based ping broadcast to say I'm here and alive
- * - OTA (update ofver the air functionally)
- * - detects if its compiling for ESP8266 or ESP32
- */
+   simple_node_client_arduino
+   https://github.com/rlfbckr/simple-node
+
+   ralf baecker 2023
+
+   boilerplate code for running a simple network node on an ESP32/8266
+   the code includes the following features:
+   - store NODE_ID in EEPROM
+   - wifiMulti: searches for the strongest know wifi and connects
+   - OSC vie AsyncUDP lib
+   - simple OSC based ping broadcast to say I'm here and alive
+   - OTA (update ofver the air functionally)
+   - detects if its compiling for ESP8266 or ESP32
+*/
 
 #ifdef ESP8266
 // take specific libraries for ESP8266
@@ -40,11 +40,11 @@
 
 
 int MY_NODE_ID = -1; // the final MY_NODE_ID is not set here, it will be stored and read from EEPROM.
-                     // this will allow you to use the "same" code on
-                     // all nodes without setting the node in the code here.
-                     // before you have to set (write to the eeprom) the node ID via the setNodeID arduino sketch.
-                     // upload this sketch afterwads. 
-                     
+// this will allow you to use the "same" code on
+// all nodes without setting the node in the code here.
+// before you have to set (write to the eeprom) the node ID via the setNodeID arduino sketch.
+// upload this sketch afterwads.
+
 float FW_VERSION = 0.01; // important for the firmware ota flashing process / increment for next upload
 
 // server location of your new firmware (export firmware with arduino IDE , change version.txt as well)
